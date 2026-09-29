@@ -18,6 +18,10 @@ dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	// Minecraft only sees textures inside mod jars when a resource loader registers them.
+	implementation "net.fabricmc.fabric-api:fabric-resource-loader-v1:${project.resource_loader_version}"
+	include "net.fabricmc.fabric-api:fabric-resource-loader-v1:${project.resource_loader_version}"
+	include "net.fabricmc.fabric-api:fabric-api-base:${project.fabric_api_base_version}"
 
 }
 

@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "golden-horn-goat",
+	"version": "${version}",
+	"name": "Golden Horn Goat",
+	"description": "Makes the horn of screaming goats golden.",
+	"authors": [
+		"Misti"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/user/MISTI",
+		"sources": "https://github.com/MISTI-CAT"
+	},
+	"license": "ARR",
+	"icon": "assets/golden-horn-goat/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"net.misti.goldenhorngoat.GoldenHornGoat"
+		]
+	},
+	"mixins": [
+		"golden-horn-goat.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.1",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

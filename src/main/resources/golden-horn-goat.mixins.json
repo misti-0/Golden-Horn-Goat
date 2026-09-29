@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "net.misti.goldenhorngoat.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"GoatEntityRenderStateMixin",
+		"GoatEntityRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

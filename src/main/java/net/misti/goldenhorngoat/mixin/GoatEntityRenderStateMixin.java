@@ -1,11 +1,11 @@
 package net.misti.goldenhorngoat.mixin;
 
 import net.misti.goldenhorngoat.render.ScreamingGoatState;
-import net.minecraft.client.render.entity.state.GoatEntityRenderState;
+import net.minecraft.client.renderer.entity.state.GoatRenderState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
-@Mixin(GoatEntityRenderState.class)
+@Mixin(GoatRenderState.class)
 public class GoatEntityRenderStateMixin implements ScreamingGoatState {
     @Unique
     private boolean screaming;

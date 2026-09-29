@@ -15,7 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(GoatRenderer.class)
 public class GoatEntityRendererMixin {
     @Unique
-    private static final Identifier ADULT_SCREAMING_TEXTURE = Identifier.fromNamespaceAndPath("golden-horn-goat", "textures/entity/goat/screaming_goat.png");
+    private static final Identifier ADULT_SCREAMING_TEXTURE = Identifier.fromNamespaceAndPath("golden-horn-goat", "textures/entity/goat/adult_screaming_goat.png");
+    private static final Identifier BABY_SCREAMING_TEXTURE = Identifier.fromNamespaceAndPath("golden-horn-goat", "textures/entity/goat/baby_screaming_goat.png");
+
     @Inject(method = "extractRenderState", at = @At("TAIL"))
     private void copyScreamingFlag(Goat goat, GoatRenderState state, float partialTick, CallbackInfo ci) {
         ((ScreamingGoatState) state).setScreaming(goat.isScreamingGoat());
@@ -23,8 +25,11 @@ public class GoatEntityRendererMixin {
 
     @Inject(method = "getTextureLocation", at = @At("HEAD"), cancellable = true)
     private void swapTexture(GoatRenderState state, CallbackInfoReturnable<Identifier> cir) {
-        if (((ScreamingGoatState) state).isScreaming()) {
+        if (!state.isBaby && ((ScreamingGoatState) state).isScreaming()) {
             cir.setReturnValue(ADULT_SCREAMING_TEXTURE);
+        }
+        else if (state.isBaby && ((ScreamingGoatState) state).isScreaming()) {
+            cir.setReturnValue(BABY_SCREAMING_TEXTURE);
         }
     }
 }
